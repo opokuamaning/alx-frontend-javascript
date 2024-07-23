@@ -2,11 +2,11 @@
 /* eslint-disable semi */
 // eslint-disable-next-line import/extensions
 export default function iterateThroughObject(reportWithIterator) {
-//   const employees = [];
-//   for (const idx of reportWithIterator) {
-//     employees.push(idx);
-//   }
+  //   const employees = [];
+  //   for (const idx of reportWithIterator) {
+  //     employees.push(idx);
+  //   }
 
-  //   return employees;
-  return reportWithIterator.join(' | ');
+  //   return employees.join(' | ');
+  return reportWithIterator.join(" | ");
 }
