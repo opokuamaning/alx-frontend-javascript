@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable linebreak-style */
 import ClassRoom from './0-classroom.js';
 
 export default function initializeRooms() {
