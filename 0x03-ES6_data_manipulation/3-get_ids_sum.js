@@ -1,3 +1,6 @@
-export default function getStudentIdsSum(getStudent) {
-  return getStudent.reduce((sum, current) => sum + current, 0);
+export default function getStudentIdsSum(list) {
+  return list.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.id,
+    0,
+  );
 }
