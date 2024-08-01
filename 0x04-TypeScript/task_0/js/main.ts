@@ -69,4 +69,23 @@ const teacher1: Teacher = {
     contract: 'full-time'
 };
 
+interface Directors extends Teacher {
+    numberOfReports: number;
+}
+const director1: Directors = {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    fullTimeEmployee: true,
+    location: 'UK',
+    numberOfReports: 3
+};
+
+function printTeacher(firstName: string, lastName: string): string {
+    return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+console.log(printTeacher(teacher1.firstName, teacher1.lastName));
 console.log(teacher1);
