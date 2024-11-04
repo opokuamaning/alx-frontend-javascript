@@ -1,53 +1,49 @@
-interface Student {
-    firstName: string;
-    lastName: string;
-    age: number;
+interface Teacher{
+    readonly firstName: string;
+    readonly lastName: string;
+    fullTimeEmployee: boolean;
+    yearsOfExperience?: number;
     location: string;
+    contract?: boolean;
 }
 
-const student1: Student = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 20,
-    location: 'USA'
-};
+interface Directors extends Teacher{
+    numberOfReports: number;
+}
 
-const student2: Student = {
-    firstName: 'Jane',
-    lastName: 'Doe',
-    age: 21,
-    location: 'UK'
-};
+interface printTeacherFunction{
+    (firstName: string, lastName: string): string;
+}
 
-const studentsList: Array<Student> = [student1, student2];
+function printTeacher(firstName: string, lastName: string){
+    return `${firstName[0]}. ${lastName}`;
+}
 
-const table = document.createElement('table');
-const thead = document.createElement('thead');
-const tbody = document.createElement('tbody');
+interface StudentConstructor{
+    new (firstNamw: string, lastName: string): StudendtClassInterface;
+}
 
-const headerRow = document.createElement('tr');
-const firstNameHeader = document.createElement('th');
-const locationHeader = document.createElement('th');
+interface StudendtClassInterface{
+    workOnHomework(): string;
+    displayName(): string;
+}
 
-firstNameHeader.textContent = 'First Name';
-locationHeader.textContent = 'Location';
+class StudentClass implements StudendtClassInterface{
+    firstName: string;
+    lastName: string;
 
-headerRow.appendChild(firstNameHeader);
-headerRow.appendChild(locationHeader);
-thead.appendChild(headerRow);
+    constructor(firstName: string, lastName: string){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-studentsList.forEach((student) => {
-    const tr = document.createElement('tr');
-    const firstNameCell = document.createElement('td');
-    const locationCell = document.createElement('td');
+    workOnHomework(): string {
+        return 'Currently working';
+    }
 
-    firstNameCell.textContent = student.firstName;
-    locationCell.textContent = student.location;
+    displayName(): string {
+        return this.firstName;
+    }
+}
 
-    tr.appendChild(firstNameCell);
-    tr.appendChild(locationCell);
-    tbody.appendChild(tr);
-});
-
-table.appendChild(tbody);
-document.body.appendChild(table);
+export {printTeacher, StudentClass};
